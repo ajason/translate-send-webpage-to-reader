@@ -57,6 +57,8 @@ export default async function Command() {
     const url = activeTab?.url || "";
     const title = activeTab?.title || "";
 
+    // console.log("Original content:", content);
+
     await showToast(Toast.Style.Animated, "正在处理...");
 
     let finalContent = content;
@@ -64,6 +66,8 @@ export default async function Command() {
       finalContent = await translateToLanguage(content, targetLanguage);
     }
     const html = await marked(finalContent);
+
+    // console.log("Generated HTML:", html);
 
     await saveToReader(html, title, url);
 
