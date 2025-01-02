@@ -1,25 +1,28 @@
-# Translate and send webpage to Reader
+# Translate and Send Webpage to Reader
 
-一个 Raycast 扩展，可以将当前活跃网页的内容使用 Raycast AI 自动翻译成中文并发送到 Readwise Reader。
+A Raycast extension that enhances your web reading experience by automatically translating active webpage content using Raycast AI and seamlessly sending it to Readwise Reader.
 
-## 功能特点
+While there's an existing [Reader extension](https://www.raycast.com/zach/readwise-reader) in the Raycast Extension Store that allows saving webpage URLs to Reader, neither Readwise Reader nor the Raycast extension supports content translation before saving. This extension bridges that gap.
 
-- 支持从浏览器扩展快速导入当前页面的 Markdown 内容
-- 自动将内容翻译成中文（使用 GPT-4o-mini）
-- 保留原文格式
-- 通过 Readwise Reader API 发送到 Reader Later
+This extension works by:
 
-## 要求
-- [Readwise Reader](https://readwise.io/read) 账号和 API Token
+1. Capturing the markdown content of your active webpage through the Raycast browser extension
+2. Translating the content to your desired target language using Raycast AI GPT 4o mini
+3. Saving the translated content directly to Reader Later via the Reader API
 
-## 配置说明
+## Requirements
 
-1. 获取 Readwise API Token:
-   - 登录 [Readwise](https://readwise.io/)
-   - 访问 [设置页面](https://readwise.io/access_token)
-   - 复制你的 API Token
+- [Readwise Reader](https://readwise.io/read) API Token.
+- Translation require Raycast AI
 
-2. 在扩展设置中:
-   - 打开 Raycast
-   - 找到 "Send Markdown to Reader" 扩展设置
-   - 粘贴你的 Readwise API Token
+## Setup Instructions
+
+1. Get your Readwise API Token:
+   - Sign in to [Readwise](https://readwise.io/)
+   - Navigate to [Access Token page](https://readwise.io/access_token)
+   - Copy your API Token
+
+2. Configure the extension:
+   - Open Raycast
+   - Locate "Translate and Send Webpage to Reader" extension settings
+   - Paste your Readwise API Token, Set Target Language.

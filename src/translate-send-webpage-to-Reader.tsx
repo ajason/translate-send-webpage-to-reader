@@ -30,7 +30,7 @@ async function saveToReader(html: string, title: string, url: string) {
 
     if (!response.ok) {
       const errorData = await response.text();
-      throw new Error(`API 请求失败: ${response.status} ${response.statusText}\n${errorData}`);
+      throw new Error(`API Request failed: ${response.status} ${response.statusText}\n${errorData}`);
     }
     return await response.json();
   } catch (error) {
@@ -57,9 +57,7 @@ export default async function Command() {
     const url = activeTab?.url || "";
     const title = activeTab?.title || "";
 
-    // console.log("Original content:", content);
-
-    await showToast(Toast.Style.Animated, "正在处理...");
+    await showToast(Toast.Style.Animated, "Processing...");
 
     let finalContent = content;
     if (autoTranslate) {
@@ -67,12 +65,10 @@ export default async function Command() {
     }
     const html = await marked(finalContent);
 
-    // console.log("Generated HTML:", html);
-
     await saveToReader(html, title, url);
 
-    await showToast(Toast.Style.Success, "成功保存到 Reader");
+    await showToast(Toast.Style.Success, "Successfully saved to Reader");
   } catch (e) {
-    await showToast(Toast.Style.Failure, "保存失败", String(e));
+    await showToast(Toast.Style.Failure, "Save failed", String(e));
   }
 }
