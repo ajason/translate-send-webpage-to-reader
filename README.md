@@ -26,3 +26,4 @@ This extension works by:
    - Open Raycast
    - Locate "Translate and Send Webpage to Reader" extension settings
    - Paste your Readwise API Token, Set Target Language.
+ 
