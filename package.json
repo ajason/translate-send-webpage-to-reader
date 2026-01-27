@@ -15,6 +15,20 @@
       "title": "Translate and Send Webpage to Reader",
       "description": "Fetch the content of the active webpage, translate using Raycast AI, and save to Reader Later. visite https://readwise.io/access_token to get readwise token",
       "mode": "no-view"
+    },
+    {
+      "name": "save-selection-to-reader",
+      "title": "Save Selection to Reader",
+      "description": "Save the selected text to Reader Later without translation",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "url",
+          "type": "text",
+          "placeholder": "https://example.com",
+          "required": true
+        }
+      ]
     }
   ],
   "preferences": [
@@ -42,13 +56,115 @@
       "default": "Chinese",
       "description": "The target language to translate to (e.g., Chinese, French)",
       "placeholder": "Chinese"
+    },
+    {
+      "name": "aiModel",
+      "type": "dropdown",
+      "required": false,
+      "title": "AI Model",
+      "default": "google-gemini-2.0-flash",
+      "description": "The AI model to use for translation",
+      "data": [
+        {
+          "title": "OpenAI GPT-4o",
+          "value": "openai-gpt-4o"
+        },
+        {
+          "title": "OpenAI GPT-4o mini",
+          "value": "openai-gpt-4o-mini"
+        },
+        {
+          "title": "OpenAI o1",
+          "value": "openai_o1-o1"
+        },
+        {
+          "title": "OpenAI o3-mini",
+          "value": "openai_o1-o3-mini"
+        },
+        {
+          "title": "Anthropic Claude 3.5 Sonnet",
+          "value": "anthropic-claude-sonnet"
+        },
+        {
+          "title": "Anthropic Claude 3.7 Sonnet",
+          "value": "anthropic-claude-3-7-sonnet-latest"
+        },
+        {
+          "title": "Google Gemini 2.0 Flash",
+          "value": "google-gemini-2.0-flash"
+        },
+        {
+          "title": "Google Gemini 2.5 Flash",
+          "value": "google-gemini-2.5-flash"
+        },
+        {
+          "title": "Google Gemini 2.5 Pro",
+          "value": "google-gemini-2.5-pro"
+        },
+        {
+          "title": "DeepSeek V3",
+          "value": "together-deepseek-ai/DeepSeek-V3"
+        },
+        {
+          "title": "DeepSeek R1",
+          "value": "together-deepseek-ai/DeepSeek-R1"
+        },
+        {
+          "title": "Perplexity Sonar",
+          "value": "perplexity-sonar"
+        },
+        {
+          "title": "Perplexity Sonar Pro",
+          "value": "perplexity-sonar-pro"
+        },
+        {
+          "title": "Perplexity Sonar Reasoning",
+          "value": "perplexity-sonar-reasoning"
+        },
+        {
+          "title": "Perplexity Sonar Reasoning Pro",
+          "value": "perplexity-sonar-reasoning-pro"
+        },
+        {
+          "title": "Llama 3.3 70B",
+          "value": "groq-llama-3.3-70b-versatile"
+        },
+        {
+          "title": "Llama 3.1 405B",
+          "value": "llama3.1-405b"
+        },
+        {
+          "title": "xAI Grok 2",
+          "value": "xai-grok-2-latest"
+        },
+        {
+          "title": "xAI Grok 3",
+          "value": "xai-grok-3"
+        },
+        {
+          "title": "Mistral Large",
+          "value": "mistral-large"
+        },
+        {
+          "title": "Mistral Codestral",
+          "value": "mistral-codestral"
+        }
+      ]
     }
   ],
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  },
   "dependencies": {
-    "@raycast/api": "^1.88.3",
-    "@raycast/utils": "^1.17.0",
-    "marked": "^15.0.4",
-    "node-fetch": "^3.3.0"
+    "@raycast/api": "^1.103.6",
+    "@raycast/utils": "^2.2.2",
+    "marked": "^15.0.6",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.11",
@@ -57,13 +173,5 @@
     "eslint": "^8.57.0",
     "prettier": "^3.3.3",
     "typescript": "^5.4.5"
-  },
-  "scripts": {
-    "build": "ray build",
-    "dev": "ray develop",
-    "fix-lint": "ray lint --fix",
-    "lint": "ray lint",
-    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
-    "publish": "npx @raycast/api@latest publish"
   }
 }
